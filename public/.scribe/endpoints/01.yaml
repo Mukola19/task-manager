@@ -1,0 +1,327 @@
+name: Categories
+description: 'APIs for categories'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/categories
+    metadata:
+      groupName: Categories
+      groupDescription: 'APIs for categories'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":114,"name":"Lowell Hackett","type":"Non."},{"id":115,"name":"Myrl Stiedemann I","type":"Rerum."}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1eEa3vk8Da6fcdb5ZhPgV46'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/categories
+    metadata:
+      groupName: Categories
+      groupDescription: 'APIs for categories'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of category.'
+        required: true
+        example: Top
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      type:
+        name: type
+        description: 'The type of category.'
+        required: true
+        example: type
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: Top
+      type: type
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"id":116,"name":"Erich Barton V","type":"Cum."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1D4edafbc3566PEvhZagkV8'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/categories/{id}'
+    metadata:
+      groupName: Categories
+      groupDescription: 'APIs for categories'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters:
+      id:
+        name: id
+        description: 'The id of category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":117,"name":"Beau Nienow","type":"Rerum."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: Forbidden
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Category not found"}'
+        headers: []
+        description: 'Category not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer agcvbe661DVfk3ahP8d54EZ'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/categories/{id}'
+    metadata:
+      groupName: Categories
+      groupDescription: 'APIs for categories'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters:
+      id:
+        name: id
+        description: 'The id of category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of category.'
+        required: true
+        example: Top
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      type:
+        name: type
+        description: 'The type of category.'
+        required: true
+        example: type
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: Top
+      type: type
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"id":118,"name":"Sylvia Kreiger","type":"Harum."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: Forbidden
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Category not found"}'
+        headers: []
+        description: 'Category not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3d4DEc6Phv8fkga1e6b5ZaV'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/categories/{id}'
+    metadata:
+      groupName: Categories
+      groupDescription: 'APIs for categories'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters:
+      id:
+        name: id
+        description: 'The id of category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: Forbidden
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Category not found"}'
+        headers: []
+        description: 'category not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6Ed13ZDb54e6akvPcagfhV8'
+    controller: null
+    method: null
+    route: null
+    custom: []

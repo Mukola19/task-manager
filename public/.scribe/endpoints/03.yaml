@@ -1,0 +1,113 @@
+name: Users
+description: 'APIs for users'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: Users
+      groupDescription: 'APIs for users'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"email":"walker05@example.net","categories":[]},{"email":"igraham@example.net","categories":[]}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZeavfdVPa4b1kDc6E8356hg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Users
+      groupDescription: 'APIs for users'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Requested-With: XMLHttpRequest
+    urlParameters:
+      id:
+        name: id
+        description: 'The id of category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":218,"email":"green.devante@example.org","tasks_count":null}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: Forbidden
+        custom: []
+      -
+        status: 404
+        content: '{"message":"User not found"}'
+        headers: []
+        description: 'User not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer chkvdaEg486febV1Z6P5aD3'
+    controller: null
+    method: null
+    route: null
+    custom: []

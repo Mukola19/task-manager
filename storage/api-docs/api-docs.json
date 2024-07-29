@@ -1,0 +1,92 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Rest API",
+        "contact": {
+            "email": "miller@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "Rest API"
+        }
+    ],
+    "paths": {
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get list of all categories",
+                "description": "Returns list of categories",
+                "operationId": "getProjectsList",
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CategoryShowRequest"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CategoryShowRequest": {
+                "title": "Example showing request",
+                "description": "Some simple request createa as example",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "Unique ID",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of key for storring",
+                        "type": "string",
+                        "example": "random"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "description": "Value for storring",
+                        "type": "string",
+                        "example": "awesome"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Authentication Bearer Token",
+                "name": "Authentication Bearer Token",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Categories",
+            "description": "Categories"
+        }
+    ]
+}
