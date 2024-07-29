@@ -58,15 +58,13 @@ class TaskController extends Controller
     #[ResponseFromApiResource(TaskResource::class, Task::class, 200)]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Task not found'], status: 404, description: 'task not found')]
-    public function show(string $id): TaskResource|JsonResponse
+    public function show(Task $task): TaskResource|JsonResponse
     {
-        $task = Task::query()->findOrFail($id);
-
         if (Gate::denies('view', [Task::class, $task])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
 
-        return TaskResource::make(Task::query()->findOrFail($id));
+        return TaskResource::make($task);
     }
 
 
@@ -77,10 +75,8 @@ class TaskController extends Controller
     #[ResponseFromApiResource(TaskResource::class, Task::class, 201)]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Task not found'], status: 404, description: 'task not found')]
-    public function update(Request $request, string $id): TaskResource|JsonResponse
+    public function update(Request $request, Task $task): TaskResource|JsonResponse
     {
-        $task = Task::query()->findOrFail($id);
-
         if (Gate::denies('update', [Task::class, $task])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
@@ -94,10 +90,8 @@ class TaskController extends Controller
     #[Response(content: ['success' => true], description: 'success')]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Task not found'], status: 404, description: 'Task not found')]
-    public function destroy(string $id): JsonResponse
+    public function destroy(Task $task): JsonResponse
     {
-        $task = Task::query()->findOrFail($id);
-
         if (Gate::denies('delete', [Task::class, $task])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }

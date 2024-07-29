@@ -12,7 +12,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Gate;
 use Knuckles\Scribe\Attributes\BodyParam;
 use Knuckles\Scribe\Attributes\Group;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Knuckles\Scribe\Attributes\Response;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 use Knuckles\Scribe\Attributes\UrlParam;
@@ -56,10 +55,8 @@ class CategoryController extends Controller
     #[ResponseFromApiResource(CategoryResource::class, Category::class, 200)]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Category not found'], status: 404, description: 'Category not found')]
-    public function show(string $id): CategoryResource|JsonResponse
+    public function show(Category $category): CategoryResource|JsonResponse
     {
-        $category = Category::query()->findOrFail($id);
-
         if (Gate::denies('view', [Category::class, $category])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
@@ -73,10 +70,8 @@ class CategoryController extends Controller
     #[ResponseFromApiResource(CategoryResource::class, Category::class, 201)]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Category not found'], status: 404, description: 'Category not found')]
-    public function update(Request $request, string $id): CategoryResource|JsonResponse
+    public function update(Request $request, Category $category): CategoryResource|JsonResponse
     {
-        $category = Category::query()->findOrFail($id);
-
         if (Gate::denies('update', [Category::class, $category])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
@@ -90,10 +85,8 @@ class CategoryController extends Controller
     #[Response(content: ['success' => true], description: 'success')]
     #[Response(content: ['message' => 'Forbidden'], status: 403, description: 'Forbidden')]
     #[Response(content: ['message' => 'Category not found'], status: 404, description: 'category not found')]
-    public function destroy(string $id): JsonResponse
+    public function destroy(Category $category): JsonResponse
     {
-        $category = Category::query()->findOrFail($id);
-
         if (Gate::denies('delete', [Category::class, $category])) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
